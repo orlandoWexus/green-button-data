@@ -10,7 +10,7 @@ module GreenButtonData
       element :billToDate, class: Integer, as: :bill_to_date
       element :costAdditionalLastPeriod, class: Integer,
               as: :cost_additional_last_period
-      element :costAdditionalDetailLastPeriod, class: Integer,
+      element :costAdditionalDetailLastPeriod, class: SummaryMeasurement,
               as: :cost_additional_detail_last_period
       element :currency, class: Integer
       element :overallConsumptionLastPeriod, class: SummaryMeasurement,
@@ -36,6 +36,8 @@ module GreenButtonData
       element :ratchetDemandPeriod, class: Interval, as: :ratchet_demand_period
       element :statusTimeStamp, class: Integer, as: :status_time_stamp
       element :commodity, class: Integer
+      element :readCycle, as: :read_cycle
+      element :tariffProfile, as: :tariff
 
       def currency
         CURRENCY[@currency]
@@ -59,7 +61,7 @@ module GreenButtonData
       element :'espi:billToDate', class: Integer, as: :bill_to_date
       element :'espi:costAdditionalLastPeriod', class: Integer,
               as: :cost_additional_last_period
-      element :'espi:costAdditionalDetailLastPeriod', class: Integer,
+      element :'espi:costAdditionalDetailLastPeriod', class: SummaryMeasurement,
               as: :cost_additional_detail_last_period
       element :'espi:currency', class: Integer, as: :currency
       element :'espi:overallConsumptionLastPeriod', class: SummaryMeasurement,
@@ -89,6 +91,8 @@ module GreenButtonData
               as: :ratchet_demand_period
       element :'espi:statusTimeStamp', class: Integer, as: :status_time_stamp
       element :'espi:commodity', class: Integer, as: :commodity
+      element :'espi:readCycle', as: :read_cycle
+      element :'espi:tariffProfile', as: :tariff
 
       # Special case for PG&E which uses generic namespacing
       element :'ns0:billingPeriod', class: Interval, as: :billing_period
@@ -96,7 +100,7 @@ module GreenButtonData
       element :'ns0:billToDate', class: Integer, as: :bill_to_date
       element :'ns0:costAdditionalLastPeriod', class: Integer,
               as: :cost_additional_last_period
-      element :'ns0:costAdditionalDetailLastPeriod', class: Integer,
+      element :'ns0:costAdditionalDetailLastPeriod', class: SummaryMeasurement,
               as: :cost_additional_detail_last_period
       element :'ns0:currency', class: Integer, as: :currency
       element :'ns0:overallConsumptionLastPeriod', class: SummaryMeasurement,
@@ -126,6 +130,8 @@ module GreenButtonData
               as: :ratchet_demand_period
       element :'ns0:statusTimeStamp', class: Integer, as: :status_time_stamp
       element :'ns0:commodity', class: Integer, as: :commodity
+      element :'ns0:readCycle', as: :read_cycle
+      element :'ns0:tariffProfile', as: :tariff
     end
   end
 end
