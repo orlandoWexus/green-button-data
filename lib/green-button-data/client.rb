@@ -174,6 +174,24 @@ module GreenButtonData
       )
     end
 
+    def retail_customer(id = nil, options = {})
+      if id.is_a? Hash
+        options = id
+        id = nil
+      end
+
+      retail_customer_id = options[:retail_customer_id]
+
+      get_resource(
+        @configuration.retail_customer_url(
+          retail_customer_id: retail_customer_id
+        ),
+        id,
+        RetailCustomer,
+        sanitize_options(options)
+      )
+    end
+
     private
 
     def get_resource(url, id = nil, klazz = nil, options = {})
